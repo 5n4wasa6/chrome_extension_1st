@@ -1,0 +1,12 @@
+{
+    "name": "Nayoro Sample",
+    "version": "1.0.0",
+    "manifest_version": 2,
+    "description": "Nayoro Sample Chrome Extension",
+    "content_scripts": [{
+      "matches": ["https://gourmet-bot.com/*"],
+      "js": [
+        "main.js"
+      ]
+    }]
+  }

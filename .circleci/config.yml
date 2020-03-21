@@ -1,0 +1,33 @@
+version: 2.1
+
+executors:
+  default:
+    working_directory: ~/workspace
+    docker:
+      - image: circleci/node:latest
+
+commands:
+  npm-install:
+    steps:
+      - run:
+          name: npm install
+          command: npm install
+  run-linter:
+    steps:
+      - run:
+          name: npm run lint
+          command: npm run lint
+
+jobs:
+  test-job:
+    executor:
+      name: default
+    steps:
+      - checkout
+      - npm-install
+      - run-linter
+
+workflows:
+  build:
+    jobs:
+      - test-job
