@@ -17,6 +17,11 @@ commands:
       - run:
           name: npm run lint
           command: npm run lint
+  test-command:
+    steps:
+      - run:
+          name: hello world
+          command: echo "hello world"
 
 jobs:
   test-job:
@@ -26,6 +31,7 @@ jobs:
       - checkout
       - npm-install
       - run-linter
+      - test-command
 
 workflows:
   build:
